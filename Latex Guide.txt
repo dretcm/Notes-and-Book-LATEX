@@ -1,0 +1,418 @@
+install Miktex
+install TextMaker
+
+# for kown symbols:
+https://detexify.kirelabs.org/classify.html
+or serach detexify in google
+
+1 -------------> simple file create:
+
+\documentclass{article} % as type def in python, [size of the file, by default is A4] can empty.
+
+\usepackage{amsmath} % type import amsmath
+
+\begin{document}
+	Hola Mundo desde Latex
+\end{document}
+
+1 -------------> title, author, date, book, section:
+
+\documentclass{book} % book
+% Dimensiones 18cmx21cm. M\'argenes: Superior 2cm, izquierdo 2cm
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+\parindent = 0mm % sangr\'{\i}a = 0mm
+% Paquetes con símbolos matemáticos
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+
+\usepackage[T1]{fontenc} % fuentes adecuadas para salida
+\usepackage[utf8]{inputenc} %
+
+
+\title{Mi primer artículo en Latex}  % set the title.
+\author{Alexander Carpio Mamani}  % bwlow of title will be the name or author
+\date{tiempo de covid 28/05/21}  % by default the date is the date of you created the file.
+
+\begin{document}
+\maketitle  % generate the title.
+
+\chapter{Introduccion}  % only do it when the documentclass is book or report.
+\section{Problema abierto}
+La dificultad en la investigaci\'on de la convergencia de la
+serie
+$$\sum_{n=1}^\infty\frac{1}{n^3\sin^2n}$$
+se debe a la falta de conocimiento sobre el comportamiento
+de $|n\sin n|$ conforme $n \rightarrow \infty$,
+y esto esta relacionado con las aproximaciones racionales
+de $\pi$.
+
+\end{document}
+
+
+# section:
+
+\documentclass{article} % art\'iculo
+% Dimensiones 18cmx21cm. M\'argenes: Superior 2cm, izquierdo 2cm
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+\parindent = 0mm % sangr\'{\i}a = 0mm
+% Paquetes con símbolos matemáticos
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+\usepackage[T1]{fontenc} % fuentes adecuadas para salida
+\usepackage[utf8]{inputenc} %
+\usepackage{lipsum} % for generate text
+
+\title{Mi primer artículo en Latex}  % set the title.
+\author{Alexander Carpio Mamani}  % bwlow of title will be the name or author
+\date{tiempo de covid 28/05/21}  % by default the date is the date of you created the file.
+
+\begin{document}
+\maketitle  % generate the title.
+
+%\chapter{Introduccion}  % only do it when the documentclass is book.
+\section{Problema abierto} % 1.Problema abierto
+La dificultad en la investigaci\'on de la convergencia de la
+serie
+$$\sum_{n=1}^\infty\frac{1}{n^3\sin^2n}$$
+se debe a la falta de conocimiento sobre el comportamiento
+de $|n\sin n|$ conforme $n \rightarrow \infty$,
+y esto esta relacionado con las aproximaciones racionales
+de $\pi$.
+
+
+\section{blablabla}  % 2. balblabla
+\lipsum[2-5]  % generate text of 2 to 5 paragrahps.
+
+\section{UCSP}     % 3.UCSP
+En historiografía el concepto se utiliza de distintas formas, entre muchas causas, por las diferentes concepciones de quién es el protagonista de la Historia (el sujeto histórico).
+
+Para la interpretación providencialista, el tiempo histórico es un paréntesis en la eternidad, origen y destino del hombre.
+
+Si el hombre es el verdadero protagonista de la historia, la escala temporal de la vida humana pasa a ser la decisiva, pero puede ser superada por la duración de las instituciones, que la superan.
+
+La determinación de la causa de los hechos históricos puede reducirse a una explicación determinista y monocausal o hacerse más compleja (multicausal y relativista), lo que suele responder a un mayor grado de acercamiento a la realidad, aunque dificulta la construcción del modelo explicativo (y si se convierte en demasiado compleja termina siendo poco o nada útil -como lo sería un mapa que reprodujera a escala 1:1 el territorio cartografiado, con lo que coincidiría en extensión con él-). Está por ver si la complejidad de los sistemas históricos será reducible a cuantificación, como en última instancia es la pretensión de la historia cuantitativa, mediante herramientas interpretativas sofisticadas (futuros avances de la informática o la teoría del caos).
+
+\end{document}
+
+1 -------------> create input:
+
+################# file: sec-problem.tex ###########
+
+\section{UNIVERSITY}     % 3.UCSP
+En historiografía el concepto se utiliza de distintas formas, entre muchas causas, por las diferentes concepciones de quién es el protagonista de la Historia (el sujeto histórico).
+
+Para la interpretación providencialista, el tiempo histórico es un paréntesis en la eternidad, origen y destino del hombre.
+
+Si el hombre es el verdadero protagonista de la historia, la escala temporal de la vida humana pasa a ser la decisiva, pero puede ser superada por la duración de las instituciones, que la superan.
+
+################# file: sec-mediun.tex ###########
+
+\section{EOOO}     % 3.UCSP
+a
+b
+c
+e 12313123.
+
+
+################### file: main.tex ##############
+
+\documentclass{article} % art\'iculo
+
+% Dimensiones 18cmx21cm. M\'argenes: Superior 2cm, izquierdo 2cm
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}  % also can u use top=5mm, left=2mm, etc.
+
+\parindent = 0mm % sangr\'{\i}a = 0mm
+
+% Paquetes con símbolos matemáticos
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+
+\usepackage[T1]{fontenc} % fuentes adecuadas para salida
+\usepackage[utf8]{inputenc} %
+\usepackage{lipsum} % for generate text
+
+\title{Mi primer artículo en Latex}  % set the title.
+\author{Alexander Carpio Mamani}  % bwlow of title will be the name or author
+\date{tiempo de covid 28/05/21}  % by default the date is the date of you created the file.
+
+\begin{document}
+\maketitle  % generate the title.
+
+\input{sec-problem}  %inser the section in other file
+\input{sec-mediun}
+\section{Problema abierto}
+Hola este es mi segundo sex.
+
+\end{document}
+
+1 -------------> table of contents : center text : babel: show frame : break line :
+
+# contents :
+
+\begin{document}
+\maketitle  % generate the title.
+\tableofcontents
+
+\section{Problema abierto}
+Hola este es mi segundo sex.
+\section{aeaea}
+por eso la caja
+
+12313
+
+mejor asi.
+
+\section{conclusion}
+
+todo bien.
+
+\end{document}
+
+# babel:
+\usepackage[spanish]{babel}
+
+
+# center :
+
+\begin{document}
+\maketitle  % generate the title.
+
+\section{Problema abierto}
+Hola este es mi segundo sex.
+
+
+\section{aeaea}
+
+\begin{center}   % all text in the center
+
+por eso la caja
+
+12313
+
+mejor asi.
+
+\end{center}
+
+\section{conclusion}
+todo bien.
+
+
+# left : right
+
+\begin{flushleft}
+Por: papa noel.
+\end{flushleft}
+
+\begin{flushright}
+Por: mama noela.
+\end{flushright}
+
+
+# show frame :
+# by default is false.
+\usepackage[total={18cm,21cm},top=2cm, left=2cm, showframe=True]{geometry}
+
+\usepackage{showframe} % useful for show the margins.
+
+
+# break line use "\\ ": or use "\\\\" for two break lines:  or  " \break " :
+
+\date{Universidad Católica de San Pablo\\
+
+\break
+alexander.carpio@ucsp.edu.pe}
+
+
+\begin{document}
+\maketitle
+
+\begin{center}
+Universidad Católica de San Pablo\\
+alexander.carpio@ucsp.edu.pe
+\end{center}
+
+1 -------------> FONT : color : url  or reference :
+
+# text in bold: 
+\textbf{Todos los indicadores subieron, lo más lamentable es el aumento de la cifra de muertes diarias}
+
+# color :
+
+\documentclass{article}
+\usepackage{xcolor}
+
+\definecolor{miblue}{rgb}{.63,.79,.95}  % rgb
+\colorlet{miverdeoscuro}{blue!40!black}
+
+\begin{document}
+
+\colorbox{miblue}{\parbox{10cm}{La imagen de la izquierda muestra ....}}\\  % font blue
+{\color{miverdeoscuro} Este es un texto de prueba }    % color words
+
+\end{document}
+
+
+# reference : url :
+\usepackage{hyperref}
+
+\href{url}{alias}
+
+
+# size of words :
+
+{\tiny Tiny} Tiny
+{\scriptsize Script} Script
+{\footnotesize Foot} Foot
+{\small Small} Small
+{\normalsize Normal} Normal
+{\large large} large
+{\Large Large} Large
+{\huge huge} huge
+{\Huge Huge} Huge
+
+
+# symbol:
+
+Comando Símbolo Comando Símbolo
+\'a á ?` ¿
+\'e é !` ¡
+\'{\i} í `` '' “ ”
+\'o ó ` ' ‘’
+\'u ú \~n ñ
+
+
+# create a line horizontal :
+
+\noindent\rule{16cm}{0.5pt}   % width, height
+
+
+1 -------------> function in latex : cluesters :
+
+# functions:
+
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+
+\newcommand{\R}{\mathbb{R}} % call to other functuion with a function.
+
+\newcommand{\ImprimirNombre}{Alexander\\ Carpio\\ Mamani} %function
+
+\begin{document}
+
+Mi nombre es ...\break\break \ImprimirNombre  % call own function
+
+$\R$
+
+\end{document}
+
+
+# clusters :
+
+\begin{document}
+\paragraph{Superindices}
+
+$x^{x^{x^x}}$ % for clustering or clusters we will use "{}".
+
+$x^epsilon$  % only cath the first word for power in "x".
+
+$x^{epsilon}$ % with keys we can use all word for power "x".
+
+\paragraph{subindices}
+% $x_x_x_x$  % this comand is subX, but without clusters or keys. and this will be a error.
+
+$x_{x_{x_x}}$ % with clusters
+
+${{x_x}_x}_x$  % rather is important the order.
+
+
+\paragraph{Synbol matematics}
+
+$\sum_{n=1}^{N}i_n$  % the upperindex and lowerindex join.
+
+$\int_a^b f(x)\,dx$  %different sintaxis with integrals. 
+% the use "\," or "\;" "\quad" "\qquad"is a space, according the right.
+
+
+$\displaystyle \sum_{n=1}^{N}i_n$ % with "\displaystyle" do that our first comand will be hight or beautyful.
+
+$\displaystyle \int_a^b f(x)\,dx$
+
+
+$$\sum_{n=1}^{N}i_n$$ %other form of displaystyle, but it finish i the center
+
+\paragraph{fractions}
+
+$\frac{x}{x-e^{-1}}$
+
+$\frac{x+1}{\frac{3}{x-1}}$
+
+
+\paragraph{parentesis}
+
+$$ {a \choose b} $$  % symbol to combinatory,
+
+$$ \left( {a \atop b} \right) $$ % equovalent to the previous.
+
+$ {a \choose b} $ % in the left, already not in the center.
+
+$ \left( {a \atop b} \right) $
+
+logit$(Y)$=ln $\left(\frac{\pi}{1-\pi} \right) = \alpha + \beta_1X_1 + \beta_2X_2$
+
+
+\paragraph{conjuntos}
+
+$x \in X$
+
+
+\end{document}
+
+
+# ecuations:
+
+\begin{document}
+
+\paragraph{ecuactions}
+
+En la ecuacion \ref{tal} ve presenta la ecuacion original, en la parte \ref{otrotal} pasamos el tres a sumar al cinco, y finalmente en la ecuacion \ref{ultimotaaal} hallamos x.
+
+\begin{equation}
+\label{tal}
+{2x - 3 = 5}
+\end{equation}
+
+\begin{equation}
+\label{otrotal}
+{2x = 8}
+\end{equation}
+
+\begin{equation}
+\label{ultimotaaal}
+{x = 4}
+\end{equation}
+
+
+\end{document}
+
+
+
+# arrays:
+
+
+\paragraph{array o arreglos}
+
+%%
+% c - center
+% l - aling left
+% r - aling right
+
+\[
+
+\left(
+\begin{array}{clr}
+a & b & c \\
+d & e & f
+\end{array}
+\right)
+
+\]
+
+1 ------------->
+{
+\
