@@ -413,6 +413,31 @@ d & e & f
 
 \]
 
-1 ------------->
-{
-\
+8 -------------> images :
+
+\documentclass{article}
+
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}  %module for images
+
+\begin{document}
+
+% \textwidth, define the image with the width of the text.
+\includegraphics[width=\textwidth]{Kemonito.jpg} % image in the same folder to file.tex
+% \includegraphics[width=3cm, height=4cm]{Kemonito.jpg}
+% \includegraphics{Kemonito.jpg}
+% \includegraphics{Kemonito}
+
+\end{document}
+
+# 
+
+9 ------------>
+9 ------------>
+9 ------------>
+9 ------------>
+9 ------------>
