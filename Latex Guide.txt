@@ -1,9 +1,16 @@
 install Miktex
 install TextMaker
 
+# if you want work online:
+https://es.overleaf.com
+
 # for kown symbols:
 https://detexify.kirelabs.org/classify.html
 or serach detexify in google
+
+# use control + t para comentar las lines:
+
+
 
 1 -------------> simple file create:
 
@@ -25,7 +32,7 @@ or serach detexify in google
 \usepackage{amsmath,amssymb,amsfonts,latexsym}
 
 \usepackage[T1]{fontenc} % fuentes adecuadas para salida
-\usepackage[utf8]{inputenc} %
+\usepackage[utf8]{inputenc} % para las tildes.
 
 
 \title{Mi primer artículo en Latex}  % set the title.
@@ -44,6 +51,8 @@ se debe a la falta de conocimiento sobre el comportamiento
 de $|n\sin n|$ conforme $n \rightarrow \infty$,
 y esto esta relacionado con las aproximaciones racionales
 de $\pi$.
+
+% \~{n} # the letter ñ or \~n or ~n
 
 \end{document}
 
@@ -283,6 +292,89 @@ Comando Símbolo Comando Símbolo
 \noindent\rule{16cm}{0.5pt}   % width, height
 
 
+# references with images , tables, contents, etc:
+
+\documentclass{article}
+
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}  % para que funcione las referencias al darle click.
+\usepackage[spanish]{babel}  % para que este todo el texto en español masomenos.
+
+\begin{document}
+
+\section{INDICES:}
+\tableofcontents
+
+\listoftables  % table of contents of tables according the \begin
+\listoffigures  % the same but for figures
+
+\pagebreak
+\section{TABLAS:}
+
+ En la table \ref{TAL} están los números.
+
+ \begin{table}[htbp]
+ % h - coloca la tabla aqui(h-here) si puede.
+ % t - coloca la tabla arriba(t-top) si puede.
+ % b - coloca la tabla abajo(b-bot) si puede.
+ % p ???
+  \caption{esta es la leyenda de la tabla}
+  \label{TAL}    % record that \label always must stay over the caption.
+  \centering
+ 
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+ \end{table}
+ 
+ La tabla \ref{tab:tabla2} es una copia de la tabla \ref{TAL}
+ 
+ \begin{table}[!h]
+ % !h or h! para colocar la tabla en la posicion que se indica.
+  \caption{esta es la leyenda de la tabla}
+  \label{tab:tabla2}
+  \begin{center}
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+  \end{center}
+ \end{table}
+ 
+ \section{FIGURAS:}
+ 
+ La figura \ref{TAL_IMG} muestra a milos.
+ 
+ \begin{figure}[h]
+   \centering
+   \label{TAL_IMG}
+   \includegraphics[width=10cm, height=2cm]{milos.png}
+   \caption{Esta es la leyenda de la imagen}
+ \end{figure}
+ 
+
+\end{document}
+
+
+# rename tables :
+
+
+Para editar estos nombres, podemos hacer lo siguiente:
+
+\begin{document}
+\renewcommand{\listfigurename}{LISTA DE FIGURAS} % recordar que solo funcionaran si definimos estan antes de la definicion tipo "\tableoftables", etc.
+\renewcommand{\listtablename}{Lista de Tablas}
+\renewcommand{\contentsname}{Lista de Contenidos}
+\renewcommand{\figurename}{Foto}
+\renewcommand{\tablename}{DATOS}
+
+
+
 1 -------------> function in latex : cluesters :
 
 # functions:
@@ -336,11 +428,24 @@ $\displaystyle \int_a^b f(x)\,dx$
 
 $$\sum_{n=1}^{N}i_n$$ %other form of displaystyle, but it finish i the center
 
+
+\prod_{\overset{i=0}{i\neq k}}^{n}\frac{w_i}{(w_i-w_k)} % fractions and over.
+
+
 \paragraph{fractions}
 
 $\frac{x}{x-e^{-1}}$
 
 $\frac{x+1}{\frac{3}{x-1}}$
+
+
+\paragraph{dots}
+. . . \ldots ··· \cdots
+.
+.
+. \vdots .
+.
+. \ddots
 
 
 \paragraph{parentesis}
@@ -413,6 +518,214 @@ d & e & f
 
 \]
 
+
+# tramos : delimitadores : stretch :
+
+\begin{document}
+
+\[f(x)=\left\{ \begin{array}{rcl}
+				x^2+1 & \mbox{si} & x\geq 0\\
+				      & 		  &\\
+				\ln|x| & \mbox{si} & x < 0\\
+				\end{array}
+\right. \]
+
+\end{document}
+
+
+# tables :
+
+\begin{document}
+
+ \begin{tabular}{clcr} % cc = two columns and center % lll = 3 columns in the left side, r = one column in the right side.
+ Uno  & Dos & Tres  & Cuatro\\
+ 1 & 2 & 3 & 4\\
+ \end{tabular}
+
+\end{document}
+
+# table with bars:
+
+\begin{document}
+
+ \begin{tabular}{|c|l|c|r|} % cc = two columns and center % lll = 3 columns in the left side, r = one column in the right side.
+ \hline
+ Uno  & Dos & Tres  & Cuatro\\ \hline
+ 1 & 2 & 3 & 4\\ \hline
+ \end{tabular}
+
+\end{document}
+
+# set line of table:
+
+\begin{document}
+
+ \begin{tabular}{|c|l|c|r|}\hline
+ Uno  & Dos & Tres  & Cuatro\\ \cline{1-2} % here, only line from 1 to 2. the column 3 and 4 will be without horizontal line.
+ 1 & 2 & 3 & 4\\ \hline
+ \end{tabular}
+
+\end{document}
+
+
+# severals tables with references :
+
+\begin{document}
+
+\section{TABLAS:}
+
+ En la table \ref{TAL} están los números.
+
+ \begin{table}
+  \caption{esta es la leyenda de la tabla}
+  \label{TAL}
+  \centering
+ 
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+ \end{table}
+ 
+ La tabla \ref{tab:tabla2} es una copia de la tabla \ref{TAL}
+ 
+ \begin{table}
+  \caption{esta es la leyenda de la tabla}
+  \label{tab:tabla2}
+  \begin{center}
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+  \end{center}
+ \end{table}
+ 
+
+\end{document}
+
+# option 2 several tables :
+\begin{document}
+
+\section{TABLAS:}
+
+ En la table \ref{TAL} están los números.
+
+ \begin{table}[htbp]
+ % h - coloca la tabla aqui(h-here) si puede.
+ % t - coloca la tabla arriba(t-top) si puede.
+ % b - coloca la tabla abajo(b-bot) si puede.
+ % p ???
+  \caption{esta es la leyenda de la tabla}
+  \label{TAL}
+  \centering
+ 
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+ \end{table}
+ 
+ La tabla \ref{tab:tabla2} es una copia de la tabla \ref{TAL}
+ 
+ \begin{table}[!h]
+ % !h or h! para colocar la tabla en la posicion que se indica.
+  \caption{esta es la leyenda de la tabla}
+  \label{tab:tabla2}
+  \begin{center}
+  \begin{tabular}{|c|l|c|r|} \hline
+   Uno  & Dos & Tres  & Cuatro\\ \cline{1-2}
+   1 & 2 & 3 & 4\\ \hline
+  \end{tabular}
+  \end{center}
+ \end{table}
+
+\end{document}
+
+
+# tables for ecuations :
+
+ Tabla \ref{Table1}:
+
+ \begin{table}[!h]
+  \label{Table1}
+  \centering
+ 
+  \begin{tabular}{|c|c|} 
+  \hline
+  		% the key is the " \( ... \) "
+	 \(\displaystyle\frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \cdots}}}}\) & \(\displaystyle{\sum_{i}^{n-1}}{\prod_{j=i+1}^{n}}f(i,j)\psi^{-\pi}\) \\
+
+   \hline
+  \end{tabular}
+  
+  \caption{Tabla de ecuaciones}
+ \end{table}
+
+
+# fill color of table in a determinate cell:
+
+\usepackage[x11names,table]{xcolor}
+
+\newcommand{\fillcell}{\cellcolor[gray]{0}}
+
+ Tabla \ref{Table2}:
+ 
+ \begin{table}[!h]
+  \label{Table2}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|} 
+   \hline
+    \fillcell & & & & & & \fillcell \\ \hline
+    & \fillcell & & & & \fillcell &\\ \hline
+    & & \fillcell & & \fillcell & &\\ \hline
+    & & & \fillcell & & &\\ \hline
+    & & \fillcell & & \fillcell & &\\ \hline
+    & \fillcell & & & & \fillcell &\\ \hline
+    \fillcell & & & & & & \fillcell \\ \hline      
+                  
+  \end{tabular}
+  
+  \caption{Tabla de una x de 7x7}
+ \end{table}
+
+
+# table with multicell : multicolumn : rotate text :
+
+\usepackage{rotating}
+
+ Tabla \ref{Table3}:
+ 
+ \begin{table}[!h]
+  \label{Table3}
+  \centering
+
+  \begin{tabular}{|c|c|c|c|c|c|c|c|} 
+   \hline
+     & \multicolumn{7}{c|}{D\'ias de la semana} \\ \hline
+     & Lunes &  Martes &  Mi\'ercoles & Jueves & Viernes & S\'abado & Domingo \\ \hline
+    \rotatebox{90}{Presente} & \multicolumn{1}{l|}{Si} &  \multicolumn{1}{l|}{No} & \multicolumn{1}{l|}{Si} & \multicolumn{1}{l|}{No} & \multicolumn{1}{l|}{Si} &  \multicolumn{1}{l|}{No} &  \multicolumn{1}{l|}{No} \\
+   \hline
+  \end{tabular}
+  
+  \caption{Tabla de d\'ias de la semana}
+ \end{table}
+
+
+# subfig's : 
+# better use [htbp]
+
+\usepackage{subfig}
+
+ \begin{figure}[htbp]
+   \centering
+   \caption{Imagenes de Motorola G6 y samsumg galaxy S10}
+   \label{fig:c}
+   \subfloat[Motorola G6]{\includegraphics[width=4cm]{motorola_g6.jpg}}
+   \subfloat[Samsung S10]{\includegraphics[width=4cm]{samsung_s10.jpg}}
+
+ \end{figure}
+
+
 8 -------------> images :
 
 \documentclass{article}
@@ -436,8 +749,114 @@ d & e & f
 
 # 
 
-9 ------------>
-9 ------------>
-9 ------------>
-9 ------------>
-9 ------------>
+9 ------------> bibiography : bib : cite :
+
+# example 1:
+
+\begin{document}
+
+\section{Resumen}
+La obra de \cite{TAL} hace que tengamos varias prespectivas de los personajes y en enfasis con la protagonista la cual es una araña, Kfc tambien comento sobre esto \cite{OTRATAL}.
+
+\begin{thebibliography}{99}
+	\bibitem{TAL} komu desu ga, https://www3.animeflv.net/ver/kumo-desu-ga-nani-ka-23.
+
+	\bibitem{OTRATAL} twit de KFC, https://twitter.com/KFC\_ES/status/1405904649819992070. % if happen a mistake, use \_, \^, \&, according the link.
+	
+\end{thebibliography}
+
+\section{Bibliografia}
+\begin{enumerate}  % other form, but the previous is better.
+	\item \label{XTAL} komu desu ga, \url{https://www3.animeflv.net/ver/kumo-desu-ga-nani-ka-23}
+\end{enumerate}
+
+\end{document}
+
+
+# example 2 : first use f11 and then use f6 and f7.
+
+\documentclass{article}
+
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+
+\begin{document}
+\section{Presentación}
+Bueno este \cite{TAL} es un archivo que contiene referencias \cite{OTROTAL} o algo asi mas explicaciones en \cite{TALBOOK}.
+
+\bibliographystyle{plain}  % type of references.
+\bibliography{main.bib}
+
+\end{document}
+
+% where the file main.bib is:
+@article{ahu61,
+   author={Arrow, Kenneth J. and Leonid Hurwicz and Hirofumi Uzawa},
+   title={Constraint qualifications in maximization problems},
+   journal={Naval Research Logistics Quarterly},
+   volume={8},
+   year=1961,
+   pages={175-191}
+}
+
+
+@inproceedings{TAL,
+   author={Aggarwal, Gagan and Hartline, Jason D.},
+   year={2006},
+   title={Knapsack auctions},
+   booktitle={Proceedings of the 17th Annual ACM-SIAM Symposium on Discrete Algorithms},
+   pages={1083-1092},
+   publisher={Association for Computing Machinery},
+   address={New York}
+}
+
+@inproceedings{OTROTAL,
+   author={Aggarwal, Gagan and Hartline, Jason D.},
+   year={2006},
+   title={Knapsack auctions},
+   booktitle={Proceedings of the 17th Annual ACM-SIAM Symposium on Discrete Algorithms},
+   pages={1083-1092},
+   publisher={Association for Computing Machinery},
+   address={New York}
+}
+
+@Book{TALBOOK,
+ALTauthor = {SHO},
+title = {the boom},
+year = {2050},
+}
+
+10 ------------> beamer : diapositivas :
+
+# example 1:
+
+\documentclass{beamer}
+
+\usetheme{Warsaw} % Tema escogido en este ejemplo
+
+\begin{document}
+
+\section{Sección 1}
+\begin{frame}{TITULO D LA 1 DIAPO}
+holaa esta la first diapo.
+\end{frame}
+
+\begin{frame}{TITULO D LA 2 DIAPO}
+holaa esta la seg diapo.
+\end{frame}
+
+\section{Sección 2}
+\begin{frame}{TITULO D LA 3 DIAPO}
+holaa esta la terce diapo.
+\end{frame}
+
+\end{document}
+
+
+11 ------------>
+12 ------------>
+13 ------------>
