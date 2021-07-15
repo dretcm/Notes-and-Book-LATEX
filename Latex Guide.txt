@@ -10,8 +10,6 @@ or serach detexify in google
 
 # use control + t para comentar las lines:
 
-
-
 1 -------------> simple file create:
 
 \documentclass{article} % as type def in python, [size of the file, by default is A4] can empty.
@@ -89,6 +87,9 @@ de $\pi$.
 
 \section{blablabla}  % 2. balblabla
 \lipsum[2-5]  % generate text of 2 to 5 paragrahps.
+\lipsum[1-1]  % will only print lorem ipsum paragraph 1.
+\lipsum[2-4]  % will print lorem ipsum paragraph 2 to 4.
+\lipsum  % print all paragrahps.
 
 \section{UCSP}     % 3.UCSP
 En historiografía el concepto se utiliza de distintas formas, entre muchas causas, por las diferentes concepciones de quién es el protagonista de la Historia (el sujeto histórico).
@@ -158,6 +159,9 @@ Hola este es mi segundo sex.
 \begin{document}
 \maketitle  % generate the title.
 \tableofcontents
+
+# add elementos to table of contents :
+
 
 \section{Problema abierto}
 Hola este es mi segundo sex.
@@ -373,6 +377,8 @@ Para editar estos nombres, podemos hacer lo siguiente:
 \renewcommand{\figurename}{Foto}
 \renewcommand{\tablename}{DATOS}
 
+\renewcommand{\refname}{Bibliograf\'ia}
+\begin{thebibliography}{99}
 
 
 1 -------------> function in latex : cluesters :
@@ -392,6 +398,32 @@ Mi nombre es ...\break\break \ImprimirNombre  % call own function
 $\R$
 
 \end{document}
+
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+Other numerical systems have similar notations. 
+The complex numbers \( \bb{C} \), the rational 
+numbers \( \bb{Q} \) and the integer numbers \( \bb{Z} \).
+
+
+
+\usepackage{xcolor}
+
+\definecolor{green}{rgb}{0, 255, 0}
+\definecolor{red}{rgb}{255, 0, 0}
+\definecolor{yellow}{rgb}{255, 255, 0}
+
+
+\newcommand{\Y}[1]{\colorbox{yellow}{#1}}
+\newcommand{\R}[1]{\colorbox{red}{#1}}
+\newcommand{\G}[1]{\colorbox{green}{#1}}
+
+\section{Resumen}
+\Y{Mediante} \Y{ataques} \Y{de} \Y{denegación}
+
+\begin{thebibliography}{99}
+	\bibitem{TAL} \G{Sancho} \G{Lerena} \G{-} \G{15} \G{junio,} \G{2021} \G{-} \G{Redacción} \G{Byte} \G{TI}  \G{-} \G{\url{https://revistabyte.es/ciberseguridad/estas-son-debilidades-de-internet/}.}
+\end{thebibliography}
 
 
 # clusters :
@@ -603,6 +635,9 @@ d & e & f
 
 \end{document}
 
+\chapter, \section, \subsection, etc.
+
+
 # option 2 several tables :
 \begin{document}
 
@@ -773,6 +808,21 @@ La obra de \cite{TAL} hace que tengamos varias prespectivas de los personajes y 
 \end{document}
 
 
+
+\begin{thebibliography}{aaaa}
+
+	\bibitem[Old]{old} \textsc{Old, L.},
+	\textit{Confesiones de una oveja bizca.}
+	1ª ed. Madrid: Naturalistic, 2010.
+
+	\bibitem[Prad]{pradery} \textsc{Montero, J.},
+	\textit{Metodos matemáticos aplicados a la ganadería.}
+	3ª ed. Sevilla: Ediciones de la pradera, 2007. 
+ 
+	\end{thebibliography}
+\end{document}
+
+
 # example 2 : first use f11 and then use f6 and f7.
 
 \documentclass{article}
@@ -836,7 +886,8 @@ year = {2050},
 
 \documentclass{beamer}
 
-\usetheme{Warsaw} % Tema escogido en este ejemplo
+\usetheme{Warsaw} % Tema escogido en este ejemplo 
+% all themes : https://es.overleaf.com/learn/latex/Beamer
 
 \begin{document}
 
@@ -857,6 +908,230 @@ holaa esta la terce diapo.
 \end{document}
 
 
-11 ------------>
+# option 2:
+
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\title{TEST DE TEXTMAKER}
+\institute{UCSP-AQP}
+
+\begin{document}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+
+\section{Sección 1}
+\begin{frame}{TITULO D LA 1 DIAPO}
+	\titlepage
+	holaa esta la first diapo.
+\end{frame}
+
+
+\begin{frame}{TITULO D LA 2 DIAPO}
+	holaa esta la seg diapo.
+\end{frame}
+
+\section{Sección 2}
+\begin{frame}{TITULO D LA 3 DIAPO}
+	holaa esta la terce diapo.
+\end{frame}
+
+
+\subsection{LISTAS}
+\begin{frame}
+	Enumeracion y elementos:
+	\begin{enumerate}
+		\item UNO
+		\item DOS
+		\item TRES
+		\item CUATRO			
+	\end{enumerate}
+\end{frame}
+
+\end{document}
+
+
+# option 3 : lists :
+
+\section{LISTAS}
+\begin{frame}
+	\pause
+	Enumeracion y elementos:
+	\begin{enumerate}[<+->]  % accumulate of elementos 
+		\item UNO
+		\item DOS
+		\item TRES
+		\item CUATRO			
+	\end{enumerate}
+\end{frame}
+
+
+# red list or enumerate : red :
+
+\section{LISTAS}
+\begin{frame}{this is the title of red list's}
+	\pause
+	Enumeracion y elementos:
+	\begin{enumerate}[<+-| alert@+>]  % accumulate and red
+		\item UNO
+		\item DOS
+		\item TRES
+		\item CUATRO			
+	\end{enumerate}
+\end{frame}
+
+
+# code on frames :
+
+\begin{frame}[fragile] % use font code, else error.
+	\begin{verbatim}
+		def power(x,n):
+			if n == 0:
+				return 1
+			return x * power(x,n-1)
+		
+		power(2,3) # 8
+	\end{verbatim}
+\end{frame}
+
+
+# columns :
+
+\begin{frame}{Columnas}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}    
+      \begin{block}{Título del bloque 1}
+        IZQUIERDA
+      \end{block}
+    \end{column}
+    
+    \begin{column}{0.4\linewidth}
+      \begin{block}{Título del bloque 2}
+        DERECHA
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+#  add logo:
+
+\logo{\includegraphics[width=.1\textwidth]{ucsp.png}} % width the 10% size of page.
+
+
+# item ize : itemize : viñetas : 
+
+\begin{itemize} 
+    \item Madrid.  % with a viñeta of square
+    \item[$*$] Madrid.  % with a " * asdsad"
+    \item Castilla la Mancha.
+    \item Castilla y León.
+    \begin{itemize}  % anidamiento
+         \item Segovia.
+         \item Ávila.
+    \end{itemize}
+\end{itemize}
+
+
+\begin{itemize}[leftmargin=2cm]
+
+
+\begin{enumerate}[1.]   # with numbers 1,2,3
+    \item Manzanas.
+    \item Plátanos.
+    \item Pescado fresco.
+    \begin{enumerate}[a)] # now with words
+        \item Emperador.
+        \item Gallo.
+    \end{enumerate}
+\end{enumerate}
+
+
+\begin{enumerate}[{Ejercicio} 1.]  # with Ejercicio 1., Ejercicio 2., etc.
+    \item Visitar tres lugares.
+    \item Leer tres libros.
+    \item Conocer tres personas.
+\end{enumerate}
+
+
+# description :
+
+\begin{description}
+    \item[Australia:] Canguro.
+    \item[EEUU:] Águila calva.
+    \item[España:] Toro.
+    \item[México:] Águila real.
+\end{description}
+
+
+
+11 ------------> caratulas : title page : titlepage :
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\includegraphics[width=0.2\textwidth]{ucsp.jpg}\par}
+\vspace{1cm}
+{\bfseries\LARGE Universidad Superior T\'ecnica \par}  % \bfseries is type bold  % \par it usefull for break of line
+\vspace{1cm}
+{\scshape\Large Facultad de Ingenier\'ia Industrial \par} % \scshape the words hight level square
+\vspace{3cm}
+{\scshape\Huge T\'itulo del proyecto \par}
+\vspace{3cm}
+{\itshape\Large Proyecto Fin de Carrera \par}   % \itshape word type shear
+\vfill   % fill the space
+{\Large Autor: \par}
+{\Large Nombre Apellidos \par}
+\vfill
+{\Large Junio 2020 \par}
+\end{titlepage}
+
+
+# option 2:
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\noindent\rule{16cm}{0.5pt}
+		{\bfseries\LARGE UNIVERSIDAD CATÓLICA DE SAN PABLO \par}
+		{\LARGE ESCUELA PROFESIONAL DE CIENCIAS DE LA \par COMPUTACIÓN\par}	
+	\noindent\rule{16cm}{0.5pt}
+	
+	\vspace{1cm}
+	
+	{\includegraphics[width=10cm, height=4cm]{ucsp.jpg}\par}
+	
+	\vspace{1cm}
+	
+	{\bfseries\Huge Comunicación - CCOMP1-2 \par}
+	
+	\vspace{2cm}
+
+	{\bfseries\LARGE Tema: \par}
+	
+	{\Large Estas son las debilidades de Internet \par}
+	
+	\vspace{2cm}
+	
+	{\bfseries\LARGE Alumno: \par}
+	{\Large Alexander Carpio Mamani \par}
+	
+	\vspace{2cm}
+	
+	{\Large 2021-06\\Arequipa - Perú\par}
+\end{titlepage}
+\end{document}
+
 12 ------------>
 13 ------------>
