@@ -426,6 +426,27 @@ numbers \( \bb{Q} \) and the integer numbers \( \bb{Z} \).
 \end{thebibliography}
 
 
+# new command with 2 parameters :
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\definecolor{blue}{rgb}{0, 0, 255}
+
+\newcommand{\CR}[2]{\href{#1}{\color{blue}#2}}   % \newcommand{<name>}[<args>]{ <code> }
+
+\section{Música folklórica y tradicional}
+\begin{itemize}
+	\begin{enumerate}
+    	\item \CR{https://www.youtube.com/watch?v=EsOBtP53Kms}{CONTIGO PERÚ} - Arturo 'Zambo' Cavero y Óscar Avilés
+   		\item Plátanos.
+    	\item Pescado fresco.
+   		\item Plátanos.
+    	\item Pescado fresco.
+	\end{enumerate}
+\end{itemize}
+
+
 # clusters :
 
 \begin{document}
@@ -880,7 +901,7 @@ title = {the boom},
 year = {2050},
 }
 
-10 ------------> beamer : diapositivas :
+10 ------------> beamer : diapositivas : viñetas : list or enumerates : itemize : add logo in beamer :
 
 # example 1:
 
@@ -1067,6 +1088,35 @@ holaa esta la terce diapo.
 \end{description}
 
 
+# other example with itemize :
+
+\begin{itemize}
+	\item Edad de Piedra
+	\begin{enumerate}
+		\item Paleolítico
+		\begin{enumerate}
+			\item Paleolítico inferior
+			\item Paleolítico medio
+			\item Paleolítico superior
+		\end{enumerate}
+		\item Mesolítico
+		\item Neolítico
+	\end{enumerate}
+	\item Edad del Cobre
+	\item Edad del Bronce
+	\item Edad del Hierro
+\end{itemize}
+
+
+# types of items:
+\renewcommand{\theenumi}{\arabic{enumi}}  % numbers in arabic 1,2,3...
+\renewcommand{\theenumi}{\roman{enumi}} %Números romanos en minúscula i.,ii.,iii,iv., ...
+\renewcommand{\theenumi}{\Roman{enumi}} %Números romanos en mayúscula I.,II, ...
+\renewcommand{\theenumi}{\alph{enumi}} %Letras minúsculas
+\renewcommand{\theenumi}{\Alph{enumi}} %Letras mayúsculas
+
+\renewcommand{\labelenumi}{{\theenumi})} % A), B), ...
+\renewcommand{\labelenumi}{{\theenumi}:} % A:, B:, ...
 
 11 ------------> caratulas : title page : titlepage :
 
@@ -1095,6 +1145,13 @@ holaa esta la terce diapo.
 
 
 # option 2:
+
+\documentclass{article}
+
+\usepackage[total={18cm,21cm},top=2cm, left=2cm]{geometry}
+\parindent = 0mm
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \usepackage{graphicx}
 \usepackage{hyperref}
