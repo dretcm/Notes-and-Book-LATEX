@@ -975,6 +975,107 @@ holaa esta la terce diapo.
 \end{document}
 
 
+
+# option full :
+
+\documentclass[11pt]{beamer}
+
+\usetheme{Berkeley}
+
+\usepackage{graphicx}
+\usepackage{textpos}
+\usepackage{lipsum}
+
+\title{Ejercicio 3 - Diapositivas Latex}
+\author{Alexander Carpio Mamani}
+\institute{UCSP}
+\date{Junio 2021}
+
+\logo{\includegraphics[width=.1\textwidth]{ucsp.png}}
+
+\begin{document}
+
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}
+	\tableofcontents
+\end{frame}
+
+
+\section{Introducción}
+\begin{frame}{Introducción}
+	\lipsum[1-1]
+\end{frame}
+ 
+
+
+\section{Tablas}
+\begin{frame}{Uso de Tablas}
+	Esta es una tabla de 3 x 3
+\end{frame}
+
+\begin{frame}{Uso de Tablas}
+	\begin{tabular}{|c|c|c|}
+	\hline
+	Uno & Dos & Tres \\ \hline
+	Cuatro & Cinco & Seis\\ \hline
+	Siete & Ocho & Nueve\\
+	\hline
+	\end{tabular}
+\end{frame}
+
+
+
+\section{Figuras}
+\begin{frame}{Uso de Figuras}
+	Esta es una figura centralizada.
+\end{frame}
+
+\begin{frame}{Uso de Figuras}
+	\center
+	\includegraphics[width=6cm, height=6cm]{ucsp.png}
+\end{frame}
+
+
+
+\section{Enumeraciones}
+\begin{frame}{Uso de enumerate}
+	Usando enumeraciones:
+	\begin{enumerate}[<+-| alert@+>]
+		\item Uno
+		\item Dos
+		\item Tres
+		\item Cuatro			
+		\item Cinco
+	\end{enumerate}
+\end{frame}
+
+
+\section{Referencias}
+\begin{frame}{Referencias}
+
+	Utilizar 3 referencias:\\
+	
+	\begin{itemize}
+		\item Referencia 1: Esta es mi PlayList \cite{Playlist}\\
+		\item Referencia 2: Este es mi Github \cite{Github}\\
+		\item Referencia 3: Esta es mi streamer favorita \cite{Streamer}\\
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\bibliographystyle{apalike}
+	\bibliography{biblio.bib}
+\end{frame}
+
+\end{document}
+
+
+
 # option 3 : lists :
 
 \section{LISTAS}
@@ -1190,5 +1291,88 @@ holaa esta la terce diapo.
 \end{titlepage}
 \end{document}
 
-12 ------------>
+12 ------------> mental map : mapa mental :
+
+\documentclass{article}
+ 
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+ 
+\usepackage{tikz,times}
+\usepackage{verbatim}
+\usepackage[paperwidth=25cm,paperheight=22cm,left=1cm,top=1cm]{geometry}
+\usetikzlibrary{mindmap,trees,backgrounds}
+ 
+\definecolor{color_mate}{RGB}{255,255,128}
+\definecolor{color_plas}{RGB}{255,128,255}
+\definecolor{color_text}{RGB}{128,255,255}
+\definecolor{color_petr}{RGB}{255,192,192}
+\definecolor{color_made}{RGB}{192,255,192}
+\definecolor{color_meta}{RGB}{192,192,255}
+ 
+ 
+\pagestyle{empty}
+\begin{document}
+ 
+%  MAPA MENTAL DE MATERIALES
+\centering\begin{tikzpicture}[mindmap,
+  level 1 concept/.append style={level distance=180,sibling angle=60},
+  extra concept/.append style={text=black}]
+ 
+  % MATERIALES
+  \path[mindmap,concept color=color_mate,text=black]
+  node[concept] {MATERIALES}  [clockwise from=30]
+  
+    %
+    % MATERIALES: PÉTREOS
+    child[concept color= color_petr] {
+      node[concept, inner sep = 0mm ] {PÉTREOS}  [clockwise from=150]
+      child { node[concept] {Pétreos naturales} }
+      child { node[concept] {Cerámicos} }
+      child { node[concept] {Conglome-rantes} }
+      child { node[concept] {Cemento y Hormigón} }
+      child { node[concept] {Bituminosos} }
+    }
+    %
+    % MATERIALES: TEXTILES
+    child[concept color=color_text] {
+      node[concept] {TEXTILES} [clockwise from=30]
+      child { node[concept] {Hilos} }
+      child { node[concept] {Telas} }
+      child { node[concept] {Cuero} }
+    }
+    %
+    % MATERIALES: METALES
+    child[concept color=color_meta] { 
+      node[concept] {METALES}  [clockwise from=30]
+      child { node[concept] {Férricos} }
+      child { node[concept] {Ligeros} }
+      child { node[concept] {Inoxidables} }     
+      child { node[concept] {Pesados} }
+      child { node[concept] {Preciosos} }
+    }
+    %
+    % MATERIALES: PLÁSTICOS
+    child[concept color=color_plas] { 
+      node[concept] {PLÁSTICOS} [clockwise from=-70]
+      child { node[concept] {Termoplásticos} }
+      child { node[concept] {Altas propiedades} }
+      child { node[concept] {Termoestables} }
+      child { node[concept] {Elastómeros} }
+    }
+    %
+    % MATERIALES: MADERA
+    child[concept color=color_made] { 
+      node[concept] {MADERA}  [clockwise from=-75]
+      child { node[concept] {Natural} }
+      child { node[concept] {Técnica} }
+      child { node[concept] {Laminada} }
+      child { node[concept] {Aglomerada} }
+      child { node[concept] {Papel y cartón} }
+   };
+ 
+\end{tikzpicture}
+ 
+\end{document}
+
 13 ------------>
